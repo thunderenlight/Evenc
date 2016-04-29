@@ -10,7 +10,8 @@ class UsersController < ApplicationController
    def create
   	@user = User.new(user_params)
   	if @user.save
-  		flash[:success] = "Welcome to the Sample App!"
+      log_in @user
+  		flash[:success] = "Welcome to the Evenc App!"
   		redirect_to @user
   	# debugger
   	else
@@ -19,6 +20,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    log_out
+    redirect_to root_url
+
   end
 
 

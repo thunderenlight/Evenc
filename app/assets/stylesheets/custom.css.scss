@@ -40,6 +40,14 @@ textarea {
     margin-bottom: 10px;
   }
 }
+
+.jumbotron {
+  background-image: url("mood.jpg");
+  background-size: cover;
+  h1 {
+    color: tan;
+  }
+}
 /* sidebar */
 
 aside {
@@ -73,7 +81,7 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-top: 15px;
+  margin-bottom: 15px;
   @include box-sizing;
 }
 input {
@@ -92,6 +100,19 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
 
 .gravatar {
