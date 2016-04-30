@@ -20,3 +20,11 @@ User.create!(name:  "Example User",
                password:              password,
                password_confirmation: password)
 end
+
+users = User.order(:created_at).take(6)
+50.times do
+  description = Faker::Lorem.sentence(3)
+  location = Faker::Address.street_address
+  date = Faker::Date.between(7.days.ago, 1.year.from_now)
+  users.each { |user| user.events.create!(description: description, location: location, date: date) }
+end

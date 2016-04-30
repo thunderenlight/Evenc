@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 
+  has_many :events
   attr_accessor :remember_token
   before_save   :downcase_email
   validates :name,  presence: true, length: { maximum: 50 }
@@ -31,6 +32,9 @@ class User < ActiveRecord::Base
   end
   def forget
       update_attribute(:remember_token, nil)
+  end
+  def feed
+    Event.where("user_id = ?", id)
   end
 
 
