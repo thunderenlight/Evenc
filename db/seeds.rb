@@ -31,4 +31,4 @@ end
 
 invitees = User.all
 events = Event.all
- invitees.each { |i| Invitation.create!(invitee_id: i.id, event_id: events.sample.id) }
+ invitees.each { |i| Invitation.create!(invitee: i, event: events.sample) }
