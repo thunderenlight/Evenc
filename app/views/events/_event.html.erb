@@ -6,9 +6,11 @@
 	    <%= image_tag event.picture.url if event.picture? %>
 	</span>
 	<span class="address"><%= event.location %></span>
-	<span class="date"><%= event.date.strftime('%v') %></span>
+	<span class="date"><%= event.date.strftime('%v')   %></span>
+	<span class="invitees"> attending so far- <%= event.invitees.count %>
 	<% if current_user?(event.user) %>
 		<%= link_to("delete", event , method: :delete,
 				data: {confirm: "You are sure?"}) %>
 	<% end %>
+	 </span> 
 </li>

@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 
-  has_many :events
+  has_many :events, class_name: "Event"
+  has_many :invites, class_name: "Invitation", foreign_key: "invitee_id"
+  has_many :invited_events, class_name: "Event", through: :invitations, source: :event
   attr_accessor :remember_token
   before_save   :downcase_email
   validates :name,  presence: true, length: { maximum: 50 }

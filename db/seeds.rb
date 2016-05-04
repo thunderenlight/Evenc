@@ -28,3 +28,7 @@ users = User.order(:created_at).take(6)
   date = Faker::Date.between(7.days.ago, 1.year.from_now)
   users.each { |user| user.events.create!(description: description, location: location, date: date) }
 end
+
+invitees = User.all
+events = Event.all
+ invitees.each { |i| Invitation.create!(invitee_id: i.id, event_id: events.sample.id) }
